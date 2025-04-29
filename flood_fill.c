@@ -74,7 +74,6 @@ int	check_path(t_game *game)
 
 	copy = NULL;
 	get_pos(game);
-	printf("%d %d\n", game->x, game->y);
 	copy = copy_map(game);
 	fill(copy, game, game->x, game->y);
 	free_map(copy);

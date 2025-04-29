@@ -6,7 +6,7 @@
 /*   By: dagouill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 01:12:22 by dagouill          #+#    #+#             */
-/*   Updated: 2025/04/26 06:28:35 by dagouill         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:41:56 by dagouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,7 @@
 # include "printf/ft_printf.h"
 # include "libft/get_next_line.h"
 # include <X11/keysym.h>
-# include <stdlib.h>
-# include <stdio.h>
 # include <fcntl.h>
-
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
 
 typedef struct s_game
 {
@@ -65,9 +55,23 @@ void	check_2(t_game *game);
 void	check_walls(t_game *game);
 
 void	get_pos(t_game *game);
-char 	**copy_map(t_game *game);
+char	**copy_map(t_game *game);
 void	fill(char **map, t_game *game, int x, int y);
 int		check_path(t_game *game);
 void	check_map(t_game *game);
+int		test_char(char c);
+
+t_game	*initialize_struct(void);
+void	print_mov(t_game *game);
+
+int		game_end(t_game *game);
+void	move_player(int keycode, t_game *game);
+void	load_images(t_game *game);
+void	draw_map(t_game *game, int x, int y);
+
+void	check_arg(char *file, t_game *game);
+int		on_keypress(int keycode, t_game *game);
+int		on_destroy(t_game *game);
+void	game_loop(t_game *game);
 
 #endif

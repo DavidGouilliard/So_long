@@ -1,4 +1,4 @@
-SRC = main.c utils.c parsing.c flood_fill.c
+SRC = main.c utils.c utils2.c parsing.c flood_fill.c game_loop_utils.c
 OBJ = $(SRC:.c=.o)
 INCLUDES = -I/usr/include -Imlx
 MLX_DIR = ./mlx

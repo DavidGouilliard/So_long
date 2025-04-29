@@ -91,12 +91,3 @@ void	init_array(t_game *game)
 	game->map[i] = NULL;
 	ft_lstclear(&(game->map_list), free);
 }
-
-int	test_char(char c)
-{
-	if (c == '0' || c == '1' || c == 'C'
-		|| c == 'E' || c == 'P' || c == '\n')
-		return (1);
-	else
-		return (0);
-}
