@@ -63,16 +63,28 @@ void	move_player(int keycode, t_game *game)
 {
 	if (keycode == XK_d
 		&& game->map[game->y][game->x + 1] != '1')
+	{
 		game->x += 1;
+		print_mov(game);
+	}
 	else if (keycode == XK_a
 		&& game->map[game->y][game->x - 1] != '1')
+	{
 		game->x -= 1;
+		print_mov(game);
+	}
 	else if (keycode == XK_w
 		&& game->map[game->y - 1][game->x] != '1')
+	{
 		game->y -= 1;
+		print_mov(game);
+	}
 	else if (keycode == XK_s
 		&& game->map[game->y + 1][game->x] != '1')
+	{
 		game->y += 1;
+		print_mov(game);
+	}
 }
 
 int	game_end(t_game *game)

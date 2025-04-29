@@ -15,7 +15,7 @@
 void	print_mov(t_game *game)
 {
 	game->mov += 1;
-	ft_printf("%d\n", game->mov);
+	ft_printf("numbers of steps : %d\n", game->mov);
 }
 
 int	on_keypress(int keycode, t_game *game)
@@ -31,7 +31,6 @@ int	on_keypress(int keycode, t_game *game)
 			game->coll_count += 1;
 		}
 		move_player(keycode, game);
-		print_mov(game);
 	}
 	game_end(game);
 	mlx_clear_window(game->mlx_ptr, game->win_ptr);
