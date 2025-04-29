@@ -15,11 +15,9 @@
 void	init_map(char *file, t_game *game)
 {
 	int		fd;
-	int		height;
 	t_list	*line;
 	char	*raw_line;
 
-	height = 0;
 	fd = open(file, O_RDONLY, 0777);
 	if (fd < 0)
 		error_exit("error map open\n", game);
@@ -35,11 +33,9 @@ void	init_map(char *file, t_game *game)
 			error_exit("malloc error\n", game);
 		}
 		ft_lstadd_back(&(game->map_list), line);
-		height++;
+		game->height++;
 	}
-	if (height == 0)
-		error_exit("map empty\n", game);
-	init_array(game, height);
+	init_array(game);
 	close(fd);
 }
 

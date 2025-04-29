@@ -74,12 +74,19 @@ int	check_path(t_game *game)
 
 	copy = NULL;
 	get_pos(game);
+	printf("%d %d\n", game->x, game->y);
 	copy = copy_map(game);
 	fill(copy, game, game->x, game->y);
 	free_map(copy);
+	game->x = 0;
+	game->y = 0;
 	if (game->coll_count == game->coll_total
 		&& game->exit_found == 1)
+	{
+		get_pos(game);
+		game->coll_count = 0;
 		return (1);
+	}
 	else
 		return (0);
 }

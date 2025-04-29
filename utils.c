@@ -31,6 +31,18 @@ void	free_game(t_game *game)
 {
 	free_map(game->map);
 	ft_lstclear(&(game->map_list), free);
+	if (game->floor_img)
+		mlx_destroy_image(game->mlx_ptr, game->floor_img);
+	if (game->wall_img)
+		mlx_destroy_image(game->mlx_ptr, game->wall_img);
+	if (game->player_img)
+		mlx_destroy_image(game->mlx_ptr, game->player_img);
+	if (game->exit_img)
+		mlx_destroy_image(game->mlx_ptr, game->exit_img);
+	if (game->coll_img)
+		mlx_destroy_image(game->mlx_ptr, game->coll_img);
+	if (game->win_ptr)
+		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_display(game->mlx_ptr);
 	free(game->mlx_ptr);
 	free(game);
@@ -44,7 +56,15 @@ void	error_exit(char *str, t_game *game)
 	exit(1);
 }
 
-void	init_array(t_game *game, int height)
+void	check_map(t_game *game)
+{
+	if (game->height == 0)
+		error_exit("map empty\n", game);
+	else if (!game->map)
+		error_exit("map conversion failed\n", game);
+}
+
+void	init_array(t_game *game)
 {
 	int		i;
 	int		len;
@@ -53,7 +73,7 @@ void	init_array(t_game *game, int height)
 
 	i = 0;
 	p = game->map_list;
-	game->map = (char **) malloc(sizeof(char *) * (height + 1));
+	game->map = (char **) malloc(sizeof(char *) * (game->height + 1));
 	if (game->map == NULL)
 		error_exit("malloc error\n", game);
 	while (p)
@@ -69,7 +89,6 @@ void	init_array(t_game *game, int height)
 		p = p->next;
 	}
 	game->map[i] = NULL;
-	game->height = height;
 	ft_lstclear(&(game->map_list), free);
 }
 

@@ -6,7 +6,7 @@
 /*   By: dagouill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 01:12:22 by dagouill          #+#    #+#             */
-/*   Updated: 2025/04/26 05:14:34 by dagouill         ###   ########.fr       */
+/*   Updated: 2025/04/26 06:28:35 by dagouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,30 @@
 
 # include "mlx/mlx.h"
 # include "libft/libft.h"
+# include "printf/ft_printf.h"
 # include "libft/get_next_line.h"
+# include <X11/keysym.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
 
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
 typedef struct s_game
 {
 	void		*mlx_ptr;
+	void		*win_ptr;
+	void		*floor_img;
+	void		*wall_img;
+	void		*player_img;
+	void		*coll_img;
+	void		*exit_img;
 	char		**map;
 	t_list		*map_list;
 	int			lenght;
@@ -33,12 +49,13 @@ typedef struct s_game
 	int			exit_found;
 	int			x;
 	int			y;
+	int			mov;
 }	t_game;
 
 void	free_map(char **map);
 void	free_game(t_game *game);
 void	error_exit(char *str, t_game *game);
-void	init_array(t_game *game, int height);
+void	init_array(t_game *game);
 int		test_char(char c);
 
 void	init_map(char *file, t_game *game);
@@ -51,5 +68,6 @@ void	get_pos(t_game *game);
 char 	**copy_map(t_game *game);
 void	fill(char **map, t_game *game, int x, int y);
 int		check_path(t_game *game);
+void	check_map(t_game *game);
 
 #endif
