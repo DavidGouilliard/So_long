@@ -1,11 +1,11 @@
 SRC = main.c utils.c utils2.c parsing.c flood_fill.c game_loop_utils.c
 OBJ = $(SRC:.c=.o)
 INCLUDES = -I/usr/include -Imlx
-MLX_DIR = ./mlx
-MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
+MLX_DIR = ./minilibx-linux
+MLX_LIB = $(MLX_DIR)/libmlx.a
 LIBFT = ./libft/libft.a
 FT_PRINT = ./printf/libftprintf.a
-MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+MLX_FLAGS = -L/usr/lib/X11 -lXext -lX11
 CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
 
@@ -15,7 +15,7 @@ all: $(LIBFT) $(FT_PRINT) $(MLX_LIB) $(NAME)
 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(FT_PRINT) $(MLX_FLAGS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(FT_PRINT) $(MLX_LIB) $(MLX_FLAGS)
 
 $(MLX_LIB):
 	@make -C $(MLX_DIR)
