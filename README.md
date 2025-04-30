@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/4e5906c0-cca8-4913-85d0-36ee54c5a4c4)
+
 Basic 2D game made with MLX functions to connect with X11.
 
 To run on Linux :
