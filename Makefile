@@ -1,18 +1,32 @@
 SRC = main.c utils.c utils2.c parsing.c flood_fill.c game_loop_utils.c
 OBJ = $(SRC:.c=.o)
-INCLUDES = -I/usr/include -Imlx
-MLX_DIR = ./minilibx-linux
+
+
+ifeq ($(shell uname), Linux)
+	INCLUDES = -I/usr/include -Imlx
+else
+	INCLUDES = -I/opt/X11/include -Imlx
+endif
+
+MLX_DIR = ./mlx
 MLX_LIB = $(MLX_DIR)/libmlx.a
 LIBFT = ./libft/libft.a
 FT_PRINT = ./printf/libftprintf.a
 MLX_FLAGS = -L/usr/lib/X11 -lXext -lX11
-CFLAGS = -Wall -Wextra -Werror
+
+
+ifeq ($(shell uname), Linux)
+	MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+else
+	MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
+endif
+
 NAME = so_long
 
 all: $(LIBFT) $(FT_PRINT) $(MLX_LIB) $(NAME)
 
 .c.o:
-	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
+	$(CC) -c -o $@ $< $(INCLUDES)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(FT_PRINT) $(MLX_LIB) $(MLX_FLAGS)
