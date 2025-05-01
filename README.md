@@ -10,7 +10,7 @@ install required packages :
 
 git clone Minilibx in So_long directory :
 
-`git clone https://github.com/42Paris/minilibx-linux.git mlx`
+`git clone https://github.com/42Paris/minilibx-linux.git minilibx-linux`
 
 compile the files :
 
