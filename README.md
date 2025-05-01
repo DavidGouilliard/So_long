@@ -14,12 +14,12 @@ Install the required packages:
 
 ```bash
 sudo apt-get install gcc make xorg libxext-dev libbsd-dev
-
+```
 Clone the MiniLibX repository inside the project directory:
 
 git clone https://github.com/42Paris/minilibx-linux.git minilibx-linux
 
-🍎 macOS
+### 🍎 macOS
 
 Install XQuartz using Homebrew:
 
@@ -54,5 +54,3 @@ Use a valid map as an argument:
 	•	ESC — Exit the game
 
 ---
-
-Now you can copy and paste this directly into a `README.md` file. Want me to include a "Project Structure" or "Map Format" section too?
