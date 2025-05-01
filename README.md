@@ -15,37 +15,35 @@ Install the required packages:
 ```bash
 sudo apt-get install gcc make xorg libxext-dev libbsd-dev
 ```
-Clone the MiniLibX repository inside the project directory:
-
-git clone https://github.com/42Paris/minilibx-linux.git minilibx-linux
 
 ### 🍎 macOS
 
 Install XQuartz using Homebrew:
-
+```bash
 brew install --cask xquartz
+```
 
-
+### Clone the MiniLibX repository inside the project directory:
+```bash
+git clone https://github.com/42Paris/minilibx-linux.git minilibx-linux
+```
 
 ⸻
 
 ⚙️ Build the Project
 
 Compile the source files with:
-
+```bash
 make
-
-
-
+```
 ⸻
 
 ▶️ Run the Game
 
 Use a valid map as an argument:
-
+```bash
 ./so_long maps/valid.ber
-
-
+bash
 
 ⸻
 
