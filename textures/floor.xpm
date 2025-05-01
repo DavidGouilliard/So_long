@@ -2,7 +2,7 @@
 static char *grass_floor_xpm[] = {
 "64 64 2 1",
 ". c #228B22",   /* darker green */
-", c #2E8B57",   /* lighter green */
+", c #228B22",   /* lighter green */
 " .,. .,... (etc)",
   /* 64 rows total: pattern1 on even rows, pattern2 on odd rows */
   /* For brevity, here are the first few and last few lines—you’d repeat the 64-char patterns. */
