@@ -8,7 +8,7 @@ else
 	INCLUDES = -I/opt/X11/include -Imlx
 endif
 
-MLX_DIR = ./mlx
+MLX_DIR = ./minilibx-linux
 MLX_LIB = $(MLX_DIR)/libmlx.a
 LIBFT = ./libft/libft.a
 FT_PRINT = ./printf/libftprintf.a
