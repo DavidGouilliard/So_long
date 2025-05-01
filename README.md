@@ -43,7 +43,7 @@ make
 Use a valid map as an argument:
 ```bash
 ./so_long maps/valid.ber
-bash
+```
 
 ⸻
 
